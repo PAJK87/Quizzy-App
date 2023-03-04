@@ -6,7 +6,8 @@ import { StackScreenProps } from "@react-navigation/stack";
 const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Welcome Screen</Text>
+      <Text>Welcome to our education app, get ready to learn!</Text>
+      <Text>Sign In or Sign Up to get started: </Text>
 
       <View style={styles.buttons}>
         <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
