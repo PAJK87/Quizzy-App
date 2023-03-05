@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   navBox: {
+    padding: 10,
     
   },
 

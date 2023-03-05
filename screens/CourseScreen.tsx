@@ -11,6 +11,9 @@ const CourseScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
         <Pressable onPress={() => navigation.navigate('Course1')}>
           <Text>Course 1</Text>
         </Pressable>
+        <Pressable onPress={() => navigation.navigate('Course2')}>
+          <Text>Course 2</Text>
+        </Pressable>
 
       </View>
     </View>
