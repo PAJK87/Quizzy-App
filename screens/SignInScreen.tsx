@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
@@ -7,7 +7,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const auth = getAuth();
 
 const SignInScreen = () => {
-  const [value, setValue] = React.useState({
+  const [value, setValue] = useState({
     email: '',
     password: '',
     error: ''
