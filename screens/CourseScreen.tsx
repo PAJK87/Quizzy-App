@@ -1,20 +1,17 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
+import { Button } from 'react-native-elements';
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import navigation from "../navigation";
 
 const CourseScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Course Screen</Text>
       <View style={styles.courseNav}>
-        <Pressable onPress={() => navigation.navigate('Course1')}>
-          <Text>Course 1</Text>
-        </Pressable>
-        <Pressable onPress={() => navigation.navigate('Course2')}>
-          <Text>Course 2</Text>
-        </Pressable>
-
+      <Button title="Finance" buttonStyle={styles.button} onPress={() => navigation.navigate('Course1')} />
+      <Button title="Tech" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
+      <Button title="History" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
+      <Button title="Current Events" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
       </View>
     </View>
   );
@@ -26,6 +23,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
+  },
+  button: {
+    backgroundColor: 'red',
+    margin: 10,
+    width: 200,
+    height: 50,
   },
   courseNav: {
 

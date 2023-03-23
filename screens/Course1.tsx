@@ -6,7 +6,6 @@ import navigation from "../navigation";
 const Course1: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Finance</Text>
 
     </View>
   );
@@ -16,7 +15,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
 
   },
   title: {

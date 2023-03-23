@@ -16,11 +16,11 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       <Text>Welcome {user?.email}!</Text>
       <Text>This is your home page! </Text>
       <View style={styles.navBox}>
-        <Button title="Courses" style={styles.button} onPress={() => navigation.navigate('Courses')} />
+        <Button title="Courses" buttonStyle={styles.button} onPress={() => navigation.navigate('Courses')} />
 
       </View>
 
-      <Button title="Sign Out" style={styles.button} onPress={() => signOut(auth)} />
+      <Button title="Sign Out" buttonStyle={styles.button} onPress={() => signOut(auth)} />
     </View>
   );
 }
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: 'red',
   },
   navBox: {
     padding: 10,

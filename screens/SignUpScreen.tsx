@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#D54826FF',
   },
   control: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: 'red',
   },
   input: {
     flex: 1,

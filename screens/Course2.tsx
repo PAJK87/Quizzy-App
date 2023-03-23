@@ -6,7 +6,6 @@ import navigation from "../navigation";
 const Course2: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tech</Text>
 
 
     </View>

@@ -11,7 +11,7 @@ const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
       <View style={styles.buttons}>
         <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
-        <Button title="Sign up" type="outline" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign Up')} />
+        <Button title="Sign up" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign Up')} />
       </View>
     </View>
   );
@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: 'red',
+    color: 'white',
   },
 });
 export default WelcomeScreen;
