@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
 import { Button } from 'react-native-elements';
 import { getAuth, signOut } from 'firebase/auth';
@@ -13,6 +13,9 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <View>
+        <Image source={require('../assets/Quizzy-Logo.png')} />
+      </View>
       <Text style={styles.text}>Welcome {user?.email}!</Text>
       <Text style={styles.text}>This is your home page! </Text>
       <View style={styles.navBox}>
@@ -28,9 +31,7 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   text: {
     fontSize: 20,
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
   navBox: {
     padding: 10,
-    
+
   },
 
 });
