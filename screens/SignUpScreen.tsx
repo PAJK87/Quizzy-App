@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   control: {
     marginTop: 10,
-    backgroundColor: 'red',
+    backgroundColor: '#fec625',
   },
   input: {
     flex: 1,

@@ -15,21 +15,21 @@ export default function AuthStack() {
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{
           title: 'Welcome!',
           headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: '#fec625',
           },
           headerTintColor: '#fff',
         }} />
         <Stack.Screen name="Sign In" component={SignInScreen} options={{
             title: 'Sign In',
             headerStyle: {
-              backgroundColor: 'red',
+              backgroundColor: '#fec625',
             },
             headerTintColor: '#fff',
           }} />
         <Stack.Screen name="Sign Up" component={SignUpScreen} options={{
             title: 'Sign Up',
             headerStyle: {
-              backgroundColor: 'red',
+              backgroundColor: '#fec625',
             },
             headerTintColor: '#fff',
           }} />

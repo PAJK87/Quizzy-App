@@ -16,28 +16,28 @@ export default function UserStack() {
         <Stack.Screen name="Home" component={HomeScreen} options={{
           title: 'Welcome!',
           headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: '#fec625',
           },
           headerTintColor: '#fff',
         }} />
         <Stack.Screen name="Courses" component={CourseScreen} options={{
           title: 'Course Home',
           headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: '#fec625',
           },
           headerTintColor: '#fff',
         }} />
         <Stack.Screen name="Course1" component={Course1} options={{
           title: 'Finance',
           headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: '#fec625',
           },
           headerTintColor: '#fff',
         }} />
         <Stack.Screen name="Course2" component={Course2} options={{
           title: 'Tech',
           headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: '#fec625',
           },
           headerTintColor: '#fff',
         }}/>

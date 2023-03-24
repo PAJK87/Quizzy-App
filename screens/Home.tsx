@@ -13,8 +13,8 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Welcome {user?.email}!</Text>
-      <Text>This is your home page! </Text>
+      <Text style={styles.text}>Welcome {user?.email}!</Text>
+      <Text style={styles.text}>This is your home page! </Text>
       <View style={styles.navBox}>
         <Button title="Courses" buttonStyle={styles.button} onPress={() => navigation.navigate('Courses')} />
 
@@ -32,9 +32,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    padding: 10,
+  },
   button: {
     marginTop: 10,
-    backgroundColor: 'red',
+    backgroundColor: '#fec625',
   },
   navBox: {
     padding: 10,

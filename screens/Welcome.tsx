@@ -6,12 +6,13 @@ import { StackScreenProps } from "@react-navigation/stack";
 const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Welcome to our education app, get ready to learn!</Text>
-      <Text>Sign In or Sign Up to get started: </Text>
+      
 
       <View style={styles.buttons}>
-        <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
-        <Button title="Sign up" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign Up')} />
+      <Text style={styles.text}>Welcome to Quizzy!</Text>
+      <Text style={styles.text}>Sign In or Sign Up to get started: </Text>
+      <Button title="Sign in" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign In')} />
+      <Button title="Sign up" buttonStyle={styles.button} onPress={() => navigation.navigate('Sign Up')} />
       </View>
     </View>
   );
@@ -25,12 +26,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    padding: 10,
+  },
   buttons: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
-    marginTop: 10,
-    backgroundColor: 'red',
+    marginTop: 15,
+    backgroundColor: '#fec625',
     color: 'white',
   },
 });
