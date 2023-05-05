@@ -10,8 +10,8 @@ const CourseScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
       <View style={styles.courseNav}>
       <Button title="Finance" buttonStyle={styles.button} onPress={() => navigation.navigate('Course1')} />
       <Button title="Tech" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
-      <Button title="History" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
-      <Button title="Current Events" buttonStyle={styles.button} onPress={() => navigation.navigate('Course2')} />
+      <Button title="History" buttonStyle={styles.button} onPress={() => navigation.navigate('Course3')} />
+      <Button title="Current Events" buttonStyle={styles.button} onPress={() => navigation.navigate('Course4')} />
       </View>
     </View>
   );

@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import navigation from "../navigation";
 
-const Course1: React.FC<StackScreenProps<any>> = ({ navigation }) => {
+const Course3: React.FC<StackScreenProps<any>> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Finance</Text>
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Course1;
+export default Course3;
