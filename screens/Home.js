@@ -8,7 +8,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 
 const auth = getAuth();
 
-const HomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   const { user } = useAuthentication();
 
   return (

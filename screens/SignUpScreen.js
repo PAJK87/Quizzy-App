@@ -7,7 +7,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth();
 
-const SignUpScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
+const SignUpScreen = ({ navigation }) => {
   const [value, setValue] = React.useState({
     email: '',
     password: '',

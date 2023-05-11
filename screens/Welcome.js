@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { Button } from "react-native-elements";
 import { StackScreenProps } from "@react-navigation/stack";
 
-const WelcomeScreen: React.FC<StackScreenProps<any>> = ({ navigation }) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
