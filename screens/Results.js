@@ -9,65 +9,37 @@ import {
 import React from "react";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import navigation from "../navigation";
+
 const ResultsScreen = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   // console.log(route.params);
   return (
     <SafeAreaView style={{ margin: 10 }}>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 20,
-        }}
+        style={styles.mainContainer}
       >
-        <Text style={{fontWeight: 'bold', fontSize:18}}>Your Results</Text>
+        <Text style={styles.headlineText}>Your Results</Text>
         <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginRight: 14,
-          }}
+          style={styles.headlineBox}
         >
-          <Text>Share</Text>
-          <AntDesign
-            style={{ marginLeft: 4 }}
-            name="sharealt"
-            size={18}
-            color="black"
-          />
         </View>
       </View>
 
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginVertical: 10,
-        }}
+        style={styles.questionsAnsweredBox}
       >
         <Text>Questions Answered</Text>
         <Text>(5/5)</Text>
       </View>
 
-      <Pressable
-        style={{
-          backgroundColor: "white",
-          height: 220,
-          borderRadius: 7,
-          marginTop: 20,
-        }}
+      <View
+        style={styles.scoreCard}
       >
         <Text
-          style={{
-            color: "black",
-            fontSize: 18,
-            fontWeight: "600",
-            textAlign: "center",
-            marginTop: 8,
-          }}
+          style={styles.scoreHeadlineText}
         >
           Score Card
         </Text>
@@ -76,15 +48,7 @@ const ResultsScreen = () => {
           data={route.params.answers}
           renderItem={({ item, i }) => (
             <View
-              style={{
-                alignItems: "center",
-                justifyContent: "center",
-                margin: 10,
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft:"auto",
-                marginRight:"auto"
-              }}
+              style={styles.scoreList}
             >
               <Text>{item.question}</Text>
               {item.answer === true ? (
@@ -96,14 +60,73 @@ const ResultsScreen = () => {
           )}
         />
 
-        <Pressable style={{backgroundColor:"green",padding:8,marginLeft:"auto",marginRight:"auto",marginBottom:20,borderRadius:5}}>
-          <Text style={{color:"white",textAlign:"center"}}>Continue</Text>
+        <Pressable 
+        onPress={() => navigation.navigate("Courses")}
+        style={styles.continueButton}
+        >
+          <Text style={styles.continueText}>Back to Topics</Text>
         </Pressable>
-      </Pressable>
+      </View>
     </SafeAreaView>
   );
 };
 
 export default ResultsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mainContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+  headlineText:{
+    fontWeight: 'bold', 
+    fontSize:18
+  },
+  headlineBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 14,
+  },
+  questionsAnsweredBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 10,
+  },
+  scoreCard: {
+    backgroundColor: "white",
+    borderRadius: 7,
+    marginTop: 20,
+  },
+  scoreHeadlineText:{
+    color: "black",
+    fontSize: 18,
+    fontWeight: "600",
+    textAlign: "center",
+    marginTop: 8,
+  },
+  scoreList:{
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft:"auto",
+    marginRight:"auto"
+  },
+  continueButton: {
+    backgroundColor:"green",
+    padding:8,
+    marginLeft:"auto",
+    marginRight:"auto",
+    marginBottom:20,
+    borderRadius:5
+  },
+  continueText: {
+    color:"white",
+    textAlign:"center"
+  }
+
+});

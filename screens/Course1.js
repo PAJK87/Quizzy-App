@@ -1,11 +1,13 @@
 import { StyleSheet, Text, SafeAreaView, View, Pressable } from "react-native";
 import React, { useState, useEffect } from "react";
-import questions from "../data/questions";
+import geographyQuestions from "../data/geographyQuestions";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+
+
 const Course1 = () => {
   const navigation = useNavigation();
-  const data = questions;
+  const data = geographyQuestions;
   const totalQuestions = data.length;
   // points
   const [points, setPoints] = useState(0);
@@ -90,33 +92,22 @@ const Course1 = () => {
   return (
     <SafeAreaView>
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: 10,
-          marginTop: 20,
-        }}
+        style={styles.headlineBox}
       >
-        <Text style = {{fontWeight: "bold", fontSize: 18}}>Quiz Challenge</Text>
-        <Pressable
-          style={{ padding: 10, backgroundColor: "#F7C04A", borderRadius: 20 , fontWeight: 200 }}
+        <Text style = {styles.headline}>Geography Quiz!</Text>
+        <View
+          style={styles.counterBox}
         >
           <Text
-            style={{ color: "white", textAlign: "center", fontWeight: "bold" }}
+            style={styles.counter}
           >
             {counter}
           </Text>
-        </Pressable>
+        </View>
       </View>
 
       <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginHorizontal: 10,
-        }}
+        style={styles.progressBox}
       >
         <Text>Your Progress</Text>
         <Text>
@@ -126,17 +117,7 @@ const Course1 = () => {
 
       {/* Progress Bar */}
       <View
-          style={{
-            backgroundColor: "white",
-            width: "100%",
-            flexDirection: "row",
-            alignItems: "center",
-            height: 10,
-            borderRadius: 20,
-            justifyContent: "center",
-            marginTop: 20,
-            marginLeft: 10,
-          }}
+          style={styles.progressBar}
         >
           <Text
             style={{
@@ -151,16 +132,10 @@ const Course1 = () => {
             }}
           />
         </View>
-
       <View
-        style={{
-          marginTop: 30,
-          backgroundColor: "#F0F8FF",
-          padding: 10,
-          borderRadius: 6,
-        }}
+        style={styles.quizBox}
       >
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+        <Text style={styles.questionText}>
           {currentQuestion?.question}
         </Text>
         <View style={{ marginTop: 12 }}>
@@ -172,47 +147,16 @@ const Course1 = () => {
               style={
                 selectedAnswerIndex === index &&
               index === currentQuestion.correctAnswerIndex
-                  ? {
-                      flexDirection: "row",
-                      alignItems: "center",
-                      borderWidth: 0.5,
-                      borderColor: "#00FFFF",
-                      marginVertical: 10,
-                      backgroundColor: "green",
-                      borderRadius: 20,
-                    }
+                  ? styles.correctAnswer
                   : selectedAnswerIndex != null && selectedAnswerIndex === index
-                  ? {
-                      flexDirection: "row",
-                      alignItems: "center",
-                      borderWidth: 0.5,
-                      borderColor: "#00FFFF",
-                      marginVertical: 10,
-                      backgroundColor: "red",
-                      borderRadius: 20,
-                    }
-                  : {
-                      flexDirection: "row",
-                      alignItems: "center",
-                      borderWidth: 0.5,
-                      borderColor: "#00FFFF",
-                      marginVertical: 10,
-                      borderRadius: 20,
-                    }
+                  ? styles.wrongAnswer
+                  : styles.answer
               }
             >
               {selectedAnswerIndex === index &&
             index === currentQuestion.correctAnswerIndex ? (
               <AntDesign
-              style={{
-                borderColor: "#00FFFF",
-                textAlign: "center",
-                borderWidth: 0.5,
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-                padding: 10,
-              }}
+              style={styles.gotAnswerCorrect}
               name="check"
               size={20}
               color="white"
@@ -220,31 +164,14 @@ const Course1 = () => {
               ) : selectedAnswerIndex != null &&
                 selectedAnswerIndex === index ? (
                 <AntDesign
-                  style={{
-                    borderColor: "#00FFFF",
-                    textAlign: "center",
-                    borderWidth: 0.5,
-                    width: 40,
-                    height: 40,
-
-                    padding: 10,
-                    borderRadius: 20,
-                  }}
+                  style={styles.gotAnswerWrong}
                   name="closecircle"
                   size={20}
                   color="white"
                 />
               ) : (
                 <Text
-                  style={{
-                    borderColor: "#00FFFF",
-                    textAlign: "center",
-                    borderWidth: 0.5,
-                    width: 40,
-                    height: 40,
-                    borderRadius: 20,
-                    padding: 10,
-                  }}
+                  style={styles.answerButton}
                 >
                   {item.options}
                 </Text>
@@ -281,7 +208,7 @@ const Course1 = () => {
           </Text>
         )}
 
-        {index + 1 >= questions.length ? (
+        {index + 1 >= data.length ? (
           <Pressable
             onPress={() =>
               navigation.navigate("Results", {
@@ -290,28 +217,14 @@ const Course1 = () => {
                 answers: answers,
               })
             }
-            style={{
-              backgroundColor: "green",
-              padding: 10,
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginTop: 20,
-              borderRadius: 6,
-            }}
+            style={styles.doneButton}
           >
             <Text style={{ color: "white" }}>Done</Text>
           </Pressable>
         ) : answerStatus === null ? null : (
           <Pressable
             onPress={() => setIndex(index + 1)}
-            style={{
-              backgroundColor: "green",
-              padding: 10,
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginTop: 20,
-              borderRadius: 6,
-            }}
+            style={styles.doneButton}
           >
             <Text style={{ color: "white" }}>Next Question</Text>
           </Pressable>
@@ -321,8 +234,128 @@ const Course1 = () => {
   );
 };
 
+
 export default Course1;
 
 const styles = StyleSheet.create({
+  headline:{
+    fontWeight: "bold", 
+    fontSize: 18
+  },
+  counter: {
+    color: "white", 
+    textAlign: "center", 
+    fontWeight: "bold" 
+  },
+  counterBox: {
+    padding: 10, 
+    backgroundColor: "#F7C04A", 
+    borderRadius: 20 , 
+    fontWeight: 200
+  },
+  headlineBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 10,
+    marginTop: 20,
+  },
+  progressBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 10,
+  },
+  progressBar: {
+    backgroundColor: "white",
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    height: 10,
+    borderRadius: 20,
+    justifyContent: "center",
+    marginTop: 20,
+    marginLeft: 10,
+  },
+  quizBox: {
+    marginTop: 30,
+    backgroundColor: "#F0F8FF",
+    padding: 10,
+    borderRadius: 6,
+  },
+  questionText: {
+    fontSize: 18, 
+    fontWeight: "bold"
+  },
+  correctAnswer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 0.5,
+    borderColor: "#00FFFF",
+    marginVertical: 10,
+    backgroundColor: "green",
+    borderRadius: 20,
+  },
+  wrongAnswer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 0.5,
+    borderColor: "#00FFFF",
+    marginVertical: 10,
+    backgroundColor: "red",
+    borderRadius: 20,
+  },
+  answer:{
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 0.5,
+    borderColor: "#00FFFF",
+    marginVertical: 10,
+    borderRadius: 20,
+  },
+  gotAnswerCorrect: {
+    borderColor: "#00FFFF",
+    textAlign: "center",
+    borderWidth: 0.5,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    padding: 10,
+  },
+  gotAnswerWrong: {
+    borderColor: "#00FFFF",
+    textAlign: "center",
+    borderWidth: 0.5,
+    width: 40,
+    height: 40,
+    padding: 10,
+    borderRadius: 20,
+  },
+  answerButton:{
+    borderColor: "#00FFFF",
+    textAlign: "center",
+    borderWidth: 0.5,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    padding: 10,
+  },
+  doneButton:{
+    backgroundColor: "green",
+    padding: 10,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 20,
+    borderRadius: 6,
+  },
+  nextQuestionButton:{
+    backgroundColor: "green",
+    padding: 10,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 20,
+    borderRadius: 6,
+  },
+
 
 });
