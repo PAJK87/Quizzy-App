@@ -1,10 +1,11 @@
-import { StackScreenProps } from "@react-navigation/stack";
+
 import React from "react";
 import { Button } from 'react-native-elements';
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import navigation from "../navigation";
+import { useNavigation } from "@react-navigation/native";
 
-const CourseScreen = ({ navigation }) => {
+const CourseScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.courseNav}>

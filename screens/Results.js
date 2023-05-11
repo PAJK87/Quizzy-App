@@ -10,12 +10,9 @@ import React from "react";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import navigation from "../navigation";
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
-  const route = useRoute();
-  // console.log(route.params);
   return (
     <SafeAreaView style={{ margin: 10 }}>
       <View

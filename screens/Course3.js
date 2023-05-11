@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
 
-const Course2 = () => {
+const Course3 = () => {
   const navigation = useNavigation();
   const data = historyQuestions;
   const totalQuestions = data.length;
@@ -235,7 +235,7 @@ const Course2 = () => {
 };
 
 
-export default Course2;
+export default Course3;
 
 const styles = StyleSheet.create({
   headline:{

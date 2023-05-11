@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
 import { Button } from 'react-native-elements';
 import { getAuth, signOut } from 'firebase/auth';
-import navigation from '../navigation';
-import { StackScreenProps } from '@react-navigation/stack';
+import { useNavigation } from "@react-navigation/native";
 
 const auth = getAuth();
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   const { user } = useAuthentication();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
