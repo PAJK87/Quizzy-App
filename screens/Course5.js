@@ -87,7 +87,6 @@ const Course5 = () => {
   }, [index]);
 
   const currentQuestion = data[index];
-  console.log(answerStatus)
 
   return (
     <SafeAreaView>
@@ -141,6 +140,7 @@ const Course5 = () => {
         <View style={{ marginTop: 12 }}>
           {currentQuestion?.options.map((item, index) => (
             <Pressable
+              key={index}
               onPress={() =>
                 selectedAnswerIndex === null && setSelectedAnswerIndex(index)
               }

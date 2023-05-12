@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   return (
     <SafeAreaView style={{ margin: 10 }}>
       <View
@@ -29,7 +30,7 @@ const ResultsScreen = () => {
         style={styles.questionsAnsweredBox}
       >
         <Text>Questions Answered</Text>
-        <Text>(5/5)</Text>
+        <Text>(10/10)</Text>
       </View>
 
       <View
